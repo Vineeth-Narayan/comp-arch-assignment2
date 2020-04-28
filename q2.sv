@@ -54,6 +54,10 @@ parameter S0 = 0, S1 = 1, S2 = 2,S3 = 3, S4 = 4, S5 = 5,S6 = 6, S7 = 7,S8 = 8, S
       endcase
     end
 endmodule
+
+
+
+
 module t;
   reg clk;
   wire [3:0] y;
@@ -62,12 +66,20 @@ count z(clk, y);
   
   initial
     begin
+      $dumpfile("a.vcd");
+    $dumpvars(0,t);
+      #50 $finish;
+    end
+  
+  
+  initial
+    begin
     clk = 1'b0;
    
-    $dumpfile("a.vcd");
-    $dumpvars(0,t);
+    
     forever #5 clk = ~clk;
       
-     #50 $finish;
+     
     end
 endmodule
+
