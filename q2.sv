@@ -1,3 +1,6 @@
+//created in behaivoural form
+
+
 module count (clock,x);
   input clk;
   output reg [3:0]x;
