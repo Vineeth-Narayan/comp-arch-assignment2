@@ -2,7 +2,7 @@
 
 
 module count (clock,x);
-  input clk;
+  input clock;
   output reg [3:0]x;
   parameter x1 = 4'b0000, x2 = 4'b0001, x3 = 4'b0010  ,x4 = 4'b0011, x5 = 4'b0100, x6 = 4'b0101,x7 = 4'b0110,x8 = 4'b0111,x9 = 4'b1000,x10 = 4'b1001,x11 = 4'b1010;
  
