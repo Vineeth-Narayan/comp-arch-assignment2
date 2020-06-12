@@ -1,18 +1,18 @@
-//NOT WORKING
-
+// Code your design here
 module inp(x,res,out,c);
-  input  x,res;
+  input  x,res,c;
   output reg out;
   reg sum,g;
   parameter a1=1, a2=2 , a0=0;
-  always @(res)
+  
+  always @(posedge res)
     begin
-      assign res=0;
+      
       if(sum)
         out=0;
       else
-        out=1;
-      sum<=a0;
+       out=1;
+       sum=a0;
     end
   always @(posedge c)
     case(sum)
@@ -40,20 +40,17 @@ module inp(x,res,out,c);
     endcase
 endmodule
 
-
 module t;
-  reg c;
-  wire out,x,res;
+  reg out,x,res,c;
   
   inp a(x,res,out,c);
   
   initial
     begin
       
-    assign res=1'b0;
+      res=1'b0;
       c<=1'b0;
-      $dumpfile("x.vcd");
-      $dumpvars(1,t);
+      $monitor("%d  %d  %d ",out,$time,res);
       
     end
   
@@ -63,14 +60,14 @@ module t;
   initial
     begin
       #1
-      assign x=1'b1;
+       x=1'b1;
       #4
-      assign x=1'b0;
+       x=1'b0;
       #4
-      assign x=1'b1;
+       x=1'b1;
       #4
-      assign x=1'b1;
-      assign res=1;
+       x=1'b1;
+       res=1;
       $display(out);
       $finish;
       
