@@ -10,26 +10,26 @@ module j4count(clock,a);                                  //design
   always @(posedge clock)
     case (state)
       s0: begin 
-        assign a[0]=a[0]+1;
+        a[0]=a[0]+1;
         state<=s1;
       end
       s1:begin 
-        assign a[1]=a[1]+1;
+        a[1]=a[1]+1;
         state<=s2;
       end
    
       s2:begin 
-        assign a[2]=a[2]+1;
+        a[2]=a[2]+1;
         state<=s3;
       end
     
       s3:begin 
-        assign a[3]=a[3]+1;
+        a[3]=a[3]+1;
         state<=s0;
       end
       
       default:begin
-        assign a[0]=1;
+        a[0]=1;
         state<=s1;
       end
     endcase
